@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IG AI Helper</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>IG AI Helper</h1>
+      <p class="sub">投稿内容を入れると、テンプレ＋トンマナ統一でキャプション/タグ/画像まで一括生成</p>
+
+      <section class="card">
+        <h2 class="h2">① 投稿テンプレ</h2>
+        <div class="chips" id="templates">
+          <button class="chip" data-template="日常">日常</button>
+          <button class="chip" data-template="商品紹介">商品紹介</button>
+          <button class="chip" data-template="イベント告知">イベント告知</button>
+          <button class="chip" data-template="採用">採用</button>
+        </div>
+
+        <h2 class="h2">② 入力</h2>
+        <label>
+          投稿したい内容（箇条書きでもOK）
+          <textarea id="idea" rows="6" placeholder="例）友達と行ったカフェが最高だった。抹茶ラテとプリン。雰囲気は落ち着き。"></textarea>
+        </label>
+
+        <div class="row">
+          <label>
+            トーン
+            <select id="tone">
+              <option>明るめ</option>
+              <option>おしゃれ</option>
+              <option>丁寧</option>
+              <option>ちょい面白い</option>
+            </select>
+          </label>
+
+          <label>
+            ターゲット
+            <select id="target">
+              <option>一般</option>
+              <option>20代女性</option>
+              <option>学生</option>
+              <option>ビジネス層</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          商品/サービス名（任意）
+          <input id="product" placeholder="例）自分のカフェ/自社サービス名" />
+        </label>
+
+        <h2 class="h2">③ トンマナ（文体）統一</h2>
+        <p class="mini">「この感じで書いて」をAIに守らせる欄（空でもOK）</p>
+        <label>
+          例：過去投稿っぽい文章、敬語、絵文字多め、短文、など
+          <textarea id="styleGuide" rows="4" placeholder="例）語尾は『〜です/ます』、絵文字は控えめ、短めで読みやすく、1行目に結論"></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="go">生成する</button>
+          <button class="ghost" id="demo">例を入れる</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="titleRow">
+            <h2>キャプション</h2>
+            <button class="miniBtn" id="copyCaption">コピー</button>
+          </div>
+          <pre id="caption" class="box"></pre>
+        </div>
+
+        <div class="card">
+          <div class="titleRow">
+            <h2>ハッシュタグ</h2>
+            <button class="miniBtn" id="copyTags">コピー</button>
+          </div>
+          <pre id="hashtags" class="box"></pre>
+        </div>
+
+        <div class="card">
+          <div class="titleRow">
+            <h2>画像</h2>
+            <button class="miniBtn" id="copyPrompt">プロンプトコピー</button>
+          </div>
+          <img id="img" alt="" />
+          <p class="mini">画像プロンプト：</p>
+          <pre id="imgPrompt" class="box"></pre>
+        </div>
+
+        <div class="card">
+          <div class="titleRow">
+            <h2>メモ</h2>
+            <button class="miniBtn" id="copyAll">全部コピー</button>
+          </div>
+          <pre id="notes" class="box"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+<label class="check">
+  <input type="checkbox" id="genImage" checked />
+  画像も生成する（OFFで高速/低コスト）
+</label>
+

@@ -1,0 +1,60 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #0b0f19; color: #e9ecf1; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+h1 { margin: 0 0 8px; }
+.sub { margin: 0 0 18px; opacity: 0.8; }
+
+.card { background: #121a2b; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; margin-bottom: 16px; }
+label { display: block; margin-bottom: 12px; }
+textarea, input, select {
+  width: 100%; padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);
+  background: #0b0f19; color: #e9ecf1;
+}
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+button {
+  padding: 12px; border: 0; border-radius: 12px; cursor: pointer;
+  background: #6d5efc; color: white; font-weight: 700;
+}
+.status { margin: 10px 0 0; opacity: 0.9; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.box { white-space: pre-wrap; background: #0b0f19; padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); min-height: 90px; }
+img { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); display: block; margin-bottom: 10px; }
+.mini { margin: 0 0 6px; opacity: 0.7; font-size: 12px; }
+
+.h2 { margin: 0 0 8px; font-size: 14px; opacity: 0.9; }
+
+.actions { display: flex; gap: 10px; }
+.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.18); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.chip {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.chip.active {
+  background: #6d5efc;
+  border-color: transparent;
+}
+
+.titleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.miniBtn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 700;
+  color: #e9ecf1;
+}
+
+@media (max-width: 780px) {
+  .grid { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 1fr; }
+  .actions { flex-direction: column; }
+}
+
+.check { display:flex; gap:8px; align-items:center; margin-top:10px; opacity:.9; }
+.check input { width:auto; }
